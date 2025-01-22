@@ -90,7 +90,7 @@ def gen(path, outpath):
     #path = 'baichuan-inc/Baichuan-13B-Chat'
     path = '/home/user/kyomin/llm-awq/llama2_7b/snapshots/01c7f73d771dfac7d292323805ebc428287df4f9'
     tokenizer = AutoTokenizer.from_pretrained(path, trust_remote_code=True)
-    model = AutoModelForCausalLM.from_pretrained(path, trust_remote_code=True, torch_dtype=torch.float16, device_map='auto')
+    model = AutoModelForCausalLM.from_pretrained(path, trust_remote_code=True, torch_dtype=torch.bfloat16, device_map='auto')
     model = model.eval()
     tokenizer.pad_token = "[PAD]"
     tokenizer.padding_side = 'left'
